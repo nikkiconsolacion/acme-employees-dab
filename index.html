@@ -21,7 +21,13 @@
         border-radius: 10px;
         font-size: 50px;
     }
+    
+    .selected {
+        background-color:hotpink !important;
+    }
+    
 </style>
+
 </head>
 
 <body>
@@ -46,11 +52,25 @@
         ];
 
         const papa = document.getElementById("people")
+        const survivors = []
         
         employees.forEach( (ele) => {
             let newGuy = document.createElement("div")
             newGuy.innerHTML = ele.name
             papa.appendChild(newGuy)
+            newGuy.addEventListener("click", ev => {
+                if (newGuy.className) {
+                    newGuy.className = ""
+                    const whereIsIt = survivors.indexOf(newGuy.innerHTML)
+                    survivors.splice(whereIsIt, 1)
+                    console.log(survivors)
+                } else {
+                    newGuy.className = "selected"
+                    survivors.push(newGuy.innerHTML)
+                    console.log(survivors)
+                }
+            })
         })
+
     </script>
 </body>
