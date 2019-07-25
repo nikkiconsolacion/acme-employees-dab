@@ -3,7 +3,24 @@
 <head>
 
 <style>
+    html {
+        font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    }
 
+    #people {
+        display: flex;
+        flex-wrap: wrap;
+    }
+
+    #people > div {
+        background-color:cadetblue;
+        margin: 1rem;
+        height: 120px;
+        width:25%;
+        border: solid black 2px;
+        border-radius: 10px;
+        font-size: 50px;
+    }
 </style>
 </head>
 
@@ -17,15 +34,23 @@
     </div>
 
     <script>
-    const employees = [
-    { id: 1, name: 'moe'},
-    { id: 2, name: 'larry'},
-    { id: 4, name: 'shep'},
-    { id: 3, name: 'curly'},
-    { id: 5, name: 'groucho'},
-    { id: 6, name: 'harpo'},
-    { id: 8, name: 'shep Jr.'},
-    { id: 99, name: 'lucy'}
-    ];
+        const employees = [
+            { id: 1, name: 'moe'},
+            { id: 2, name: 'larry'},
+            { id: 4, name: 'shep'},
+            { id: 3, name: 'curly'},
+            { id: 5, name: 'groucho'},
+            { id: 6, name: 'harpo'},
+            { id: 8, name: 'shep Jr.'},
+            { id: 99, name: 'lucy'}
+        ];
+
+        const papa = document.getElementById("people")
+        
+        employees.forEach( (ele) => {
+            let newGuy = document.createElement("div")
+            newGuy.innerHTML = ele.name
+            papa.appendChild(newGuy)
+        })
     </script>
 </body>
